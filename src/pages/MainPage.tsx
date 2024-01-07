@@ -5,7 +5,7 @@ const MainPage = () => {
   return (
     <div className="w-full flex lg:flex-row flex-col justify-center items-center h-dvh">
       <Link
-        to={`/`}
+        to={`/upisi`}
         className="bg-[#669f1e] border-black border-2 rounded-md max-w-[272px] w-1/2 max-h-32 h-1/4 flex justify-center items-center"
       >
         <h1>UPISI</h1>
