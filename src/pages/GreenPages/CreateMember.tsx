@@ -1,6 +1,9 @@
 import React, { useState } from "react";
 
 const CreateMember = () => {
+  const [role, setRole] = useState("");
+  const [category, setCategory] = useState("");
+
   return (
     <div className="w-full flex justify-center items-center h-dvh">
       <form
@@ -9,7 +12,7 @@ const CreateMember = () => {
           const formData = new FormData(e.currentTarget);
           const obj = {
             username: formData.get("name") ?? "",
-            password: formData.get("email") ?? "",
+            email: formData.get("email") ?? "",
           };
           console.log(obj);
         }}
@@ -26,6 +29,7 @@ const CreateMember = () => {
         <input
           id="email"
           name="email"
+          required
           placeholder="Email"
           className="h-6 border-black border-2 rounded-sm w-1/2"
         ></input>
@@ -37,9 +41,11 @@ const CreateMember = () => {
           className="h-6 border-black border-2 rounded-sm w-1/2"
         ></input>
         <input
+          type="tel"
           id="phoneNo"
           name="phoneNo"
           placeholder="Broj mobitela"
+          pattern="\+?[0-9]*"
           className="h-6 border-black border-2 rounded-sm w-1/2"
         ></input>
         <input
@@ -48,18 +54,89 @@ const CreateMember = () => {
           placeholder="Adresa"
           className="h-6 border-black border-2 rounded-sm w-1/2"
         ></input>
+        <label> datum isteka ljecnickog</label>
+        <input
+          required
+          type="date"
+          id="dateOfPhysical"
+          name="dateOfPhysical"
+          placeholder="Datum isteka ljecnickog"
+          className="h-6 border-black border-2 rounded-sm w-1/2"
+        ></input>
         <select
           onChange={(e) => {
-            console.log(e.target.value);
+            setRole(e.target.value);
           }}
           required
           className="border-black border-2 rounded-sm"
         >
           <option />
-          <option value="Ucenik">Ucenik</option>
+          <option>Ucenik</option>
           <option>Clan</option>
-          <option>Rukovoditelj</option>
         </select>
+        {role === "Ucenik" ? (
+          <div>
+            <select
+              onChange={(e) => {
+                setCategory(e.target.value);
+              }}
+              required
+              className="border-black border-2 rounded-sm"
+            >
+              <option />
+              <option>A</option>
+              <option>B</option>
+              <option>C</option>
+              <option>D</option>
+            </select>
+
+            <input
+              type="date"
+              id="StartDate"
+              name="StartDate"
+              className="h-6 border-black border-2 rounded-sm w-1/2"
+            ></input>
+            <input
+              type="date"
+              id="EndDate"
+              name="EndDate"
+              className="h-6 border-black border-2 rounded-sm w-1/2"
+            ></input>
+            <input
+              type="date"
+              id="JumpStartDate"
+              name="JumpStartDate"
+              className="h-6 border-black border-2 rounded-sm w-1/2"
+            ></input>
+            <input
+              placeholder="Hitni Kontakt"
+              id="EmergencyContact"
+              name="EmergencyContact"
+              className="h-6 border-black border-2 rounded-sm w-1/2"
+            ></input>
+          </div>
+        ) : (
+          ""
+        )}
+        {role === "Clan" ? (
+          <div>
+            <select
+              onChange={(e) => {
+                setCategory(e.target.value);
+              }}
+              required
+              className="border-black border-2 rounded-sm"
+            >
+              <option />
+              <option>A</option>
+              <option>B</option>
+              <option>C</option>
+              <option>D</option>
+            </select>
+          </div>
+        ) : (
+          ""
+        )}
         <button className="flex justify-center items-center h-6 border-black border-2 rounded-sm bg-[#ea612c]">
           Submit
         </button>
