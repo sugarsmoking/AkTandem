@@ -3,6 +3,7 @@ import React, { useState } from "react";
 const CreateMember = () => {
   const [role, setRole] = useState("");
   const [category, setCategory] = useState("");
+  const [rukovoditelj, setRukovoditelj] = useState(false);
 
   return (
     <div className="w-full flex justify-center items-center h-dvh">
@@ -133,6 +134,17 @@ const CreateMember = () => {
               <option>C</option>
               <option>D</option>
             </select>
+            <label htmlFor="Rukovoditelj">Clan je rukovoditelj:</label>
+            <input
+              className="h-20 w-20"
+              type="checkbox"
+              id="Rukovoditelj"
+              name="Rukovoditelj"
+              checked={rukovoditelj}
+              onChange={(e) => {
+                setRukovoditelj(!rukovoditelj);
+              }}
+            />
           </div>
         ) : (
           ""
