@@ -9,6 +9,9 @@ import CreateMember from "./pages/GreenPages/CreateMember";
 import CreatePlane from "./pages/GreenPages/CreatePlane";
 import CreateAirport from "./pages/GreenPages/CreateAirport";
 import CreateJump from "./pages/GreenPages/CreateJump";
+import EverydayPage from "./pages/EverydayPage";
+import JumpList from "./pages/YellowPages/JumpList";
+import AddToJump from "./pages/YellowPages/AddToJump";
 
 //wow
 
@@ -27,6 +30,15 @@ function App() {
         <Route path="/upisi/avioni" element={<CreatePlane />}></Route>
         <Route path="/upisi/aerodromi" element={<CreateAirport />}></Route>
         <Route path="/upisi/skok" element={<CreateJump />}></Route>
+        <Route path="/svakodnevnica" element={<EverydayPage />}></Route>
+        <Route
+          path="/svakodnevnica/ispis-startne-liste"
+          element={<JumpList />}
+        ></Route>
+        <Route
+          path="/svakodnevnica/upis-skakaca"
+          element={<AddToJump />}
+        ></Route>
       </Routes>
     </BrowserRouter>
   );

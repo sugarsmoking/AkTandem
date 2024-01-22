@@ -12,7 +12,7 @@ const MainPage = () => {
       </Link>
 
       <Link
-        to={`/`}
+        to={`/svakodnevnica`}
         className="my-2 lg:mx-8 bg-[#d3840e] border-black border-2 rounded-md max-w-[272px] w-1/2 max-w-[272px] w-1/2 max-h-32 h-1/4 flex justify-center items-center"
       >
         <h1>SVAKODNEVNICA</h1>
